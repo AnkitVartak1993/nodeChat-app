@@ -15,15 +15,15 @@ app.use(express.static(publicPath));
 
 io.on("connection",(socket)=>{
     console.log("New user connected");
-    
-    socket.emit('newMessage',{
-    from:"test@test.com",
-    text:"test msg",
-    createdAt: 11022018
-    });
 
     socket.on('createMessage', (msg)=>{
     console.log(msg);
+
+    io.emit('newMessage',{
+        from: msg.from,
+        text: msg.text,
+        createdAt: new Date().getDate()
+    })
     });
 
    socket.on('disconnect', ()=>{
@@ -31,10 +31,6 @@ io.on("connection",(socket)=>{
     });
     
 });
-
-
-
-
 
 
 server.listen(port,()=>{
