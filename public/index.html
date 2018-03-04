@@ -4,13 +4,15 @@
 <head>
 <body>
 <p> chat app </p>
+<form id = "message_form">
+    <input name="message" type="text"placeholder="Enter your message">
+    <button id="send_message">Send</button>
+</form>
+<script src= "/js/libs/jquery-3.3.1.min.js"></script>
 <script src= "/socket.io/socket.io.js"></script>
 <script src= "/js/index.js"></script>
 
-
+<ol id="messages"></ol>
 </body>
 </head>
-
-
-
 </html>

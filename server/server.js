@@ -27,14 +27,13 @@ io.on("connection",(socket)=>{
         text:'New User Joined',
         createdAt: new Date().getDate()
     })
-    socket.on('createMessage', (msg)=>{
-    console.log(msg);
-
+    socket.on('createMessage', (msg,callback)=>{
     io.emit('newMessage',{
         from: msg.from,
         text: msg.text,
         createdAt: new Date().getDate()
     });
+    callback('msg received');
     });
 
    socket.on('disconnect', ()=>{
