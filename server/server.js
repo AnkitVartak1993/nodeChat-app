@@ -34,7 +34,7 @@ io.on("connection",(socket)=>{
         text: msg.text,
         createdAt: new Date().getDate()
     });
-    callback('msg received');
+    callback();
     });
 
     socket.on('createLocationMessage', (coords)=>{
